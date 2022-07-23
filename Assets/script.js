@@ -1,5 +1,5 @@
 var startQuizButton = document.querySelector("#start-quiz-btn");
-startQuizButton.addEventListener("click", startQuizBtn());
+startQuizButton.addEventListener("click", startQuizBtn);
 
 function startQuizBtn() {
   //remove section
@@ -7,8 +7,7 @@ function startQuizBtn() {
   startQuizSection.remove();
 
   //start timer //
+  //build question section
 
   //render first question
 }
-
-//build question section
