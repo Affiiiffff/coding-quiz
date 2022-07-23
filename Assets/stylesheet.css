@@ -1,0 +1,29 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  font-size: 30px;
+}
+
+.nav-container a {
+  color: blue;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.section-container {
+  display: flex;
+  padding-top: 90px;
+}
+
+.section-container h1 {
+  text-align: center;
+  font-size: 60px;
+  color: black;
+}
+
+.section-container h4 {
+  font-size: 25px;
+}
