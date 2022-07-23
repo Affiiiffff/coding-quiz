@@ -27,3 +27,11 @@
 .section-container h4 {
   font-size: 25px;
 }
+
+#start-quiz-btn {
+  font-size: 50px;
+  color: white;
+  background-color: darkslategrey;
+  border-radius: 25px;
+  padding: 20px;
+}
