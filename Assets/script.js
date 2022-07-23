@@ -1,7 +1,14 @@
 var startQuizButton = document.querySelector("#start-quiz-btn");
-startQuizButton.addEventListener("click", startquizbutton);
+startQuizButton.addEventListener("click", startQuizBtn());
 
-function startquizbutton() {
+function startQuizBtn() {
   //remove section
+  var startQuizSection = document.getElementById("start-quiz-section");
+  startQuizSection.remove();
+
   //start timer //
+
+  //render first question
 }
+
+//build question section

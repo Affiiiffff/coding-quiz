@@ -30,8 +30,5 @@
 
 #start-quiz-btn {
   font-size: 50px;
-  color: white;
-  background-color: darkslategrey;
-  border-radius: 25px;
-  padding: 20px;
+  padding: 10px;
 }
