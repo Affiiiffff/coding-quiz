@@ -2,8 +2,13 @@ var startQuizButton = document.querySelector("#start-quiz-btn");
 startQuizButton.addEventListener("click", startQuizBtn);
 var timerSection = document.getElementById("timer-section");
 var questionSection = document.getElementById("question-section");
+var scoreSection = document.getElementById("score-section");
+var mainEl = document.getElementById("main");
 var timerSpan = document.getElementById("timer");
-var timer = 60;
+var questionAns = document.getElementById("questionAnswer");
+var submitButton = document.getElementById("submitbtn");
+submitButton.addEventListener("click", submitScore);
+var timer = 15;
 var timerInterval;
 
 function updateTime() {
@@ -22,16 +27,9 @@ function startQuizBtn() {
   var startQuizSection = document.getElementById("start-quiz-section");
   startQuizSection.remove();
 
+  //render question and answer
+  questionSection.style.display = "block";
   //start timer //
-
-  //build timer section
-  // var timerDiv = document.createElement("div");
-  // timerDiv.textContent = "The time you have remaining is : ";
-  // var time = 60;
-  // var timerSpan = document.createElement("span");
-  // timerSpan.textContent = time;
-  // timerDiv.appendChild(timerSpan);
-  // document.body.children[1].children[0].appendChild(timerDiv);
 
   // show time
   timerSection.style.display = "block";
@@ -44,19 +42,19 @@ function startQuizBtn() {
 
 var questions = [
   {
-    title: "Question 1?",
-    choice: ["option 1", "option 2"],
-    correctAns: "option 1",
+    title: "Which number is the largest?",
+    choice: ["10", "5", "3"],
+    correctAns: "10",
   },
   {
-    title: "Question 2?",
-    choice: ["option 1", "option 2"],
-    correctAns: "option 1",
+    title: "Which one is an Animal?",
+    choice: ["Pencil", "Cat", "Neither"],
+    correctAns: "Cat",
   },
   {
-    title: "Question 3?",
-    choice: ["option 1", "option 2"],
-    correctAns: "option 1",
+    title: "Was this quiz easy?",
+    choice: ["No", "Yes", "I want to escape this quiz"],
+    correctAns: "Yes",
   },
 ];
 var questionIndex = 0;
@@ -64,7 +62,7 @@ var questionIndex = 0;
 function displayQuestion() {
   // selecting qustion 1 by 1
   var question = questions[questionIndex];
-  // dynamicall generate it
+  // dynamically generate it
   document.getElementById("question-title").textContent = question.title;
   var buttons = document.getElementsByClassName("option");
   for (let index = 0; index < buttons.length; index++) {
@@ -75,7 +73,11 @@ function displayQuestion() {
   }
 }
 
-function quizEnd() {}
+function quizEnd() {
+  questionAns.style.display = "none";
+  scoreSection.style.display = "block";
+  //take user to form which will be saved in local storage and high scores page
+}
 
 function checkAnswer(event) {
   // compare two things
@@ -90,12 +92,12 @@ function checkAnswer(event) {
     timer -= 10;
   }
   // handling for last
+
   questionIndex++;
-  displayQuestion();
+  if (timer <= 0 || questionIndex === questions.length) {
+    quizEnd();
+  } else {
+    displayQuestion();
+  }
 }
-
-// var questionDiv = document.createElement("div");
-// questionDiv.textContent = "which number is the lowest? ";
-// document.body.children[1].appendChild(questionDiv);
-
-console.log(document.body.children[1].children[1]);
+function submitScore() {}
