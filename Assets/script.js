@@ -19,6 +19,7 @@ function updateTime() {
   // if 0 stop
   if (timer <= 0) {
     clearInterval(timerInterval);
+    quizEnd();
   }
 }
 
