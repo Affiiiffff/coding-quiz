@@ -58,3 +58,16 @@
 #main {
   display: block;
 }
+
+#highscore-sction {
+  padding-left: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 50px;
+}
+
+#namesscores {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 40px;
+}
