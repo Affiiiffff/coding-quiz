@@ -109,12 +109,21 @@ function checkAnswer(event) {
 }
 
 function getScore() {
-  var getScores = localStorage.getItem("name");
-  console.log(getScores);
-  highscoreNames.textContent = getScores;
+  var nameSubmitted = nameInput.value;
+  var newScores = {
+    name: nameSubmitted,
+    time: timeTaken,
+  };
+
+  localStorage.setItem("new-score", JSON.stringify(newScores));
+
+  var displayScore = localStorage.getItem("new-score", JSON.parse(newScores));
+  highscoreNames.textContent = displayScore;
+  console.log(highscoreNames); // not working
 }
 
-function submitScore() {
+function submitScore(event) {
+  event.preventDefault;
   var nameSubmitted = nameInput.value;
   localStorage.setItem("name", nameSubmitted);
 
