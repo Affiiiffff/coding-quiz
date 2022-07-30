@@ -9,9 +9,9 @@ var questionAns = document.getElementById("questionAnswer");
 var submitButton = document.getElementById("submitbtn");
 submitButton.addEventListener("click", submitScore);
 var nameInput = document.getElementById("name-Input");
-var highscoreNames = document.getElementsByClassName("names");
+var highscoreNames = document.getElementById("names");
 
-var timer = 15;
+var timer = 30;
 var timerInterval;
 
 function updateTime() {
@@ -108,6 +108,10 @@ function checkAnswer(event) {
   }
 }
 function submitScore() {
-  const nameSubmitted = nameInput.value;
+  var nameSubmitted = nameInput.value;
   localStorage.setItem("name", nameSubmitted);
+
+  var getName = localStorage.getItem("name");
+  console.log(getName);
+  highscoreNames.textContent = getName;
 }
