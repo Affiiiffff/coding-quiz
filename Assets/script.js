@@ -10,6 +10,7 @@ var submitButton = document.getElementById("submitbtn");
 submitButton.addEventListener("click", submitScore);
 var nameInput = document.getElementById("name-Input");
 var highscoreNames = document.getElementsByClassName("names");
+
 var timer = 15;
 var timerInterval;
 
@@ -79,7 +80,8 @@ function displayQuestion() {
 function quizEnd() {
   questionAns.style.display = "none";
   scoreSection.style.display = "block";
-  timer;
+  timeTaken = timer;
+  localStorage.setItem("timetaken", timeTaken);
   console.log(timer);
   //take user to form which will be saved in local storage and high scores page
 }
@@ -106,8 +108,6 @@ function checkAnswer(event) {
   }
 }
 function submitScore() {
-  highscoreNames.textContent = nameInput.value;
-  //capture input box value
-  //append to highscores with timer
-  //take user to highscores html
+  const nameSubmitted = nameInput.value;
+  localStorage.setItem("name", nameSubmitted);
 }
