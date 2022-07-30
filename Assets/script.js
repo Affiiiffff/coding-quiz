@@ -107,11 +107,16 @@ function checkAnswer(event) {
     displayQuestion();
   }
 }
+
+function getScore() {
+  var getScores = localStorage.getItem("name");
+  console.log(getScores);
+  highscoreNames.textContent = getScores;
+}
+
 function submitScore() {
   var nameSubmitted = nameInput.value;
   localStorage.setItem("name", nameSubmitted);
 
-  var getName = localStorage.getItem("name");
-  console.log(getName);
-  highscoreNames.textContent = getName;
+  getScore();
 }
