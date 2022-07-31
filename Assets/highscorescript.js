@@ -10,4 +10,3 @@ for (let i = 0; i < displayScore.length; i++) {
 
 highscoreNames.textContent = namesList;
 timeTaken.textContent = scoresList;
-console.log(displayScore); // not working
