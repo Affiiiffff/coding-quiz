@@ -9,7 +9,6 @@ var questionAns = document.getElementById("questionAnswer");
 var submitButton = document.getElementById("submitbtn");
 submitButton.addEventListener("click", submitScore);
 var nameInput = document.getElementById("name-Input");
-var highscoreNames = document.getElementById("names");
 
 var timer = 30;
 var timerInterval;
@@ -114,12 +113,9 @@ function getScore() {
     name: nameSubmitted,
     time: timeTaken,
   };
-
-  localStorage.setItem("new-score", JSON.stringify(newScores));
-
-  var displayScore = localStorage.getItem("new-score", JSON.parse(newScores));
-  highscoreNames.textContent = displayScore;
-  console.log(highscoreNames); // not working
+  let previousScore = JSON.parse(localStorage.getItem("new-score")) || [];
+  previousScore.push(newScores);
+  localStorage.setItem("new-score", JSON.stringify(previousScore));
 }
 
 function submitScore(event) {
