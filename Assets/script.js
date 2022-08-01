@@ -122,7 +122,7 @@ function submitScore(event) {
   event.preventDefault;
   var nameSubmitted = nameInput.value;
   localStorage.setItem("name", nameSubmitted);
-  location.assign("./highscores.html");
+  window.location.assign("./highscores.html");
 
   getScore();
 }
